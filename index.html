@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1220">
+  <meta name="description" content="أدوات خصوصية تعمل محلياً في المتصفح لتنقيح النصوص وتشفير الملفات.">
+  <title>LocalSecure | خصوصيتك محلية</title>
+  <link rel="stylesheet" href="/style.css">
+  <script type="module" src="/app.js"></script>
+</head>
+<body>
+  <main class="container">
+    <header class="hero">
+      <div class="brand-mark" aria-hidden="true">⌑</div>
+      <p class="eyebrow">خصوصية تبدأ من جهازك</p>
+      <h1>LocalSecure</h1>
+      <p class="tagline">نقّح النصوص الحساسة وشفّر ملفاتك مباشرةً في المتصفح.</p>
+      <p class="privacy-note"><span aria-hidden="true">●</span> بياناتك لا تغادر جهازك</p>
+    </header>
+
+    <section class="card" aria-labelledby="sanitize-title">
+      <div class="section-heading"><span class="step">01</span><div><p class="eyebrow">تنقيح النصوص</p><h2 id="sanitize-title">اخفِ البيانات الحساسة</h2></div></div>
+      <label for="input-text">النص المراد فحصه</label>
+      <textarea id="input-text" rows="7" placeholder="الصق النص أو الكود هنا…" spellcheck="false"></textarea>
+      <div class="actions"><button id="scan-btn" type="button">فحص وتنقيح</button><button id="copy-btn" class="secondary" type="button" disabled>نسخ النتيجة</button></div>
+      <p id="scan-status" class="status" role="status" aria-live="polite"></p>
+      <label for="output-text">النص بعد التنقيح</label>
+      <pre id="output-text" class="output" tabindex="0" aria-live="polite">ستظهر النتيجة هنا.</pre>
+    </section>
+
+    <section class="card" aria-labelledby="encrypt-title">
+      <div class="section-heading"><span class="step">02</span><div><p class="eyebrow">تشفير الملفات</p><h2 id="encrypt-title">احمِ ملفاً بكلمة مرور</h2></div></div>
+      <p class="hint">يُستخدم AES-256-GCM مع اشتقاق مفتاح من كلمة المرور. احتفظ بكلمة المرور؛ لا يمكن استعادة الملف من دونها.</p>
+      <label for="file-input">اختر ملفاً</label>
+      <input id="file-input" type="file">
+      <label for="secret-key">كلمة مرور قوية (12 حرفاً على الأقل)</label>
+      <input id="secret-key" type="password" autocomplete="new-password" minlength="12" placeholder="اكتب كلمة مرور طويلة وفريدة">
+      <button id="encrypt-btn" type="button">تشفير وتنزيل الملف</button>
+      <p id="encrypt-status" class="status" role="status" aria-live="polite"></p>
+    </section>
+    <footer>المعالجة تتم على جهازك باستخدام واجهات التشفير المدمجة في المتصفح.</footer>
+  </main>
+</body>
+</html>
+
